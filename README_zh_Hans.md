@@ -5,7 +5,9 @@
 
 # YunoHost 上的 OSjs
 
-[![集成程度](https://dash.yunohost.org/integration/osjs.svg)](https://dash.yunohost.org/appci/app/osjs) ![工作状态](https://ci-apps.yunohost.org/ci/badges/osjs.status.svg) ![维护状态](https://ci-apps.yunohost.org/ci/badges/osjs.maintain.svg)
+[![集成程度](https://apps.yunohost.org/badge/integration/osjs)](https://ci-apps.yunohost.org/ci/apps/osjs/)
+![工作状态](https://apps.yunohost.org/badge/state/osjs)
+![维护状态](https://apps.yunohost.org/badge/maintained/osjs)
 
 [![使用 YunoHost 安装 OSjs](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=osjs)
 
