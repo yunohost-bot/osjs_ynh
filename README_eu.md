@@ -5,7 +5,9 @@ EZ editatu eskuz.
 
 # OSjs YunoHost-erako
 
-[![Integrazio maila](https://dash.yunohost.org/integration/osjs.svg)](https://dash.yunohost.org/appci/app/osjs) ![Funtzionamendu egoera](https://ci-apps.yunohost.org/ci/badges/osjs.status.svg) ![Mantentze egoera](https://ci-apps.yunohost.org/ci/badges/osjs.maintain.svg)
+[![Integrazio maila](https://apps.yunohost.org/badge/integration/osjs)](https://ci-apps.yunohost.org/ci/apps/osjs/)
+![Funtzionamendu egoera](https://apps.yunohost.org/badge/state/osjs)
+![Mantentze egoera](https://apps.yunohost.org/badge/maintained/osjs)
 
 [![Instalatu OSjs YunoHost-ekin](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=osjs)
 

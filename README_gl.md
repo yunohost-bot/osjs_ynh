@@ -5,7 +5,9 @@ NON debe editarse manualmente.
 
 # OSjs para YunoHost
 
-[![Nivel de integración](https://dash.yunohost.org/integration/osjs.svg)](https://dash.yunohost.org/appci/app/osjs) ![Estado de funcionamento](https://ci-apps.yunohost.org/ci/badges/osjs.status.svg) ![Estado de mantemento](https://ci-apps.yunohost.org/ci/badges/osjs.maintain.svg)
+[![Nivel de integración](https://apps.yunohost.org/badge/integration/osjs)](https://ci-apps.yunohost.org/ci/apps/osjs/)
+![Estado de funcionamento](https://apps.yunohost.org/badge/state/osjs)
+![Estado de mantemento](https://apps.yunohost.org/badge/maintained/osjs)
 
 [![Instalar OSjs con YunoHost](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=osjs)
 
