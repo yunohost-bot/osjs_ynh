@@ -17,8 +17,6 @@ ynh_script_progression "Setting up source files..."
 
 ynh_setup_source --dest_dir="$install_dir"
 
-#REMOVEME? Assuming the install dir is setup using ynh_setup_source, the proper chmod/chowns are now already applied and it shouldn't be necessary to tweak perms | chmod -R o-rwx "$install_dir"
-#REMOVEME? Assuming the install dir is setup using ynh_setup_source, the proper chmod/chowns are now already applied and it shouldn't be necessary to tweak perms | chown -R "$app:$app" "$install_dir"
 #=================================================
 # SPECIFIC SETUP
 #=================================================
@@ -28,13 +26,7 @@ ynh_script_progression "Adding $app's configuration..."
 
 ynh_config_add --template="client.config.js" --destination="$install_dir/src/client/config.js"
 
-#REMOVEME? Assuming the file is setup using ynh_config_add, the proper chmod/chowns are now already applied and it shouldn't be necessary to tweak perms | chmod 400 "$install_dir/src/client/config.js"
-#REMOVEME? Assuming the file is setup using ynh_config_add, the proper chmod/chowns are now already applied and it shouldn't be necessary to tweak perms | chown "$app:$app" "$install_dir/src/client/config.js"
-
 ynh_config_add --template="server.index.js" --destination="$install_dir/src/server/index.js"
-
-chmod 400 "$install_dir/src/server/index.js"
-chown "$app:$app" "$install_dir/src/server/index.js"
 
 #=================================================
 # BUILD APP
@@ -42,16 +34,14 @@ chown "$app:$app" "$install_dir/src/server/index.js"
 ynh_script_progression "Building $app..."
 
 pushd "$install_dir"
-
-	ynh_hide_warnings ynh_exec_as_app node_load_PATH" npm install
-	ynh_hide_warnings ynh_exec_as_app node_load_PATH" npm run package:discover
-	ynh_hide_warnings ynh_exec_as_app node_load_PATH" npm run build
-	ynh_hide_warnings ynh_exec_as_app node_load_PATH" npm install --save --production @osjs/pam-auth
+	ynh_hide_warnings ynh_exec_as_app npm install
+	ynh_hide_warnings ynh_exec_as_app npm run package:discover
+	ynh_hide_warnings ynh_exec_as_app npm run build
+	ynh_hide_warnings ynh_exec_as_app npm install --save --production @osjs/pam-auth
 popd
 
 ynh_replace --match="8000" --replace="$port" --file="$install_dir/src/server/config.js"
 
-#REMOVEME? Assuming the install dir is setup using ynh_setup_source, the proper chmod/chowns are now already applied and it shouldn't be necessary to tweak perms | chown -R "$app:$app" "$install_dir"
 #=================================================
 # SYSTEM CONFIGURATION
 #=================================================
@@ -62,7 +52,6 @@ ynh_config_add_nginx
 ynh_config_add_systemd
 yunohost service add "$app" --description="Desktop you have accesss through your browser" --log="/var/log/$app/$app.log"
 
-# Use logrotate to manage application logfile(s)
 ynh_config_add_logrotate
 
 #=================================================
@@ -70,7 +59,6 @@ ynh_config_add_logrotate
 #=================================================
 ynh_script_progression "Starting $app's systemd service..."
 
-# Start a systemd service
 ynh_systemctl --service="$app" --action="start"  --wait_until="Server listening on"
 
 #=================================================
